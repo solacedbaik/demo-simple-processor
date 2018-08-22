@@ -3,7 +3,7 @@ version: '3.2'
 
 services:
   mysql:
-    image: mariadb:10.2
+    image: mariadb:latest
     environment:
       MYSQL_DATABASE: dataflow
       MYSQL_USER: root
@@ -15,7 +15,7 @@ services:
         source: mysql_data
         target: /var/lib/mysql
   redis:
-    image: redis:2.8
+    image: redis:latest
     expose:
       - "6379"
     volumes:
@@ -91,7 +91,7 @@ services:
         source: dataflow_data
         target: /tmp
   app-import:
-    image: alpine:3.7
+    image: alpine:latest
     depends_on:
       - dataflow-server
     command: >
